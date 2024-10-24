@@ -1,0 +1,96 @@
+/*
+Clip path generated with Clippy: https://bennettfeely.com/clippy/
+*/
+
+:root {
+  --pacman-body: #f2d648;
+  --pacman-eye: #333333;
+  --black: #000;
+  --main-bg-color: #2C2E2E;
+}
+
+body {
+  background: var(--main-bg-color);
+  color: white;
+}
+
+.wrapper {
+  width: 600px; 
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pacman {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--pacman-body);
+  position: relative;
+  margin-top: 20px;
+}
+
+.eye {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 20px;
+  right: 40px;
+  background: var(--pacman-eye);
+}
+
+.mouth {
+  background: var(--main-bg-color);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 30%, 40% 50%, 100% 75%);
+  animation-name: nomnom;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+}
+
+.food {
+  position: absolute;
+  top: 40%;
+  left: 30px;
+  height: 15px;
+  display: flex;
+  overflow: hidden;
+}
+.ball {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: var(--pacman-body);
+  border-radius: 50%;
+  margin-right: 15px;
+  animation: feedme 5s infinite linear;
+}
+
+textarea.form-control {
+    margin: 10px 0px;
+}
+
+@keyframes nomnom {
+  0% {
+    clip-path: polygon(100% 50%, 41% 51%, 100% 50%);
+  }
+  50% {
+    clip-path: polygon(100% 30%, 40% 50%, 100% 75%);
+  }
+  100% {
+    clip-path: polygon(100% 50%, 41% 51%, 100% 50%);
+  }
+}
+
+@keyframes feedme {
+  0% {
+    right: 0%;
+  }
+  100% {
+    right: 100%;
+  }
+}

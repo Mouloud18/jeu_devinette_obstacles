@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <title>Jeu de devinette</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="bg-secondary fw-bold text-center text-light fw-light display-6 mt-5 mb-5 p-5 border border-2 border-dark rounded">Jeu de devinette ...!!!<img src= {{ url_for('static', filename = 'images/box.jpg') }} width="40" height="40" alt="previous" ></h1>
+        <p>{{ message }}</p>
+        {% if not jeu_termine %}
+        <form action="#" method="post">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label for="nombre">Entrez un nombre :</label>
+                        <input type="number"  size="50px"  margin="2px" id="nombre" name="nombre"  required>
+                    </div>
+                    <div class="col-lg-4">
+                        <button class="btn btn-outline-light bg-success my-2 my-sm-0" href="#" role="button" type="submit">
+                            Valider
+                        </button>
+                    </div>
+                </div>          
+            </div>
+        </form>
+    <p>Nombre d'essais : {{ nombre_essais }}</p>
+    {% else %}
+    <form action="{{ url_for('recommencer') }}">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-4">
+                    <button class="btn btn-outline-light bg-success my-2 my-sm-0" href="#" role="button" type="submit">
+                        Recommencer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+</body>
+</html>
