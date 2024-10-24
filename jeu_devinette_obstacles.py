@@ -14,6 +14,10 @@ def initialiser_partie():
     session['message'] = "Bienvenue dans le jeu de devinette ! Entrez un nombre entre 1 et 100."
     session['jeu_termine'] = False
 
+@app.route('/about')
+def about():
+    return "À propos : Ceci est une application Flask avec Git."
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # Si la partie est terminée ou que la session n'existe pas encore, on initialise
