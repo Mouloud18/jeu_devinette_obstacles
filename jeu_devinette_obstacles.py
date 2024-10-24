@@ -16,7 +16,7 @@ def initialiser_partie():
 
 @app.route('/about')
 def about():
-    return "À propos : Ceci est une application Flask avec Git."
+    return "À propos-3 : Ceci est une application Flask avec Git."
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
