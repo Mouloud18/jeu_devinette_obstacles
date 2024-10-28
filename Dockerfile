@@ -14,7 +14,7 @@ RUN pip install --upgrade pip -r requirements.txt
 
 
 # Exposer le port 5001
-EXPOSE  5001
+EXPOSE  5002
 
 
 # Définir la commande par défaut
