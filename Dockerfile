@@ -2,20 +2,20 @@
 FROM python:3.9-slim
 
 # Définir le répertoire de travail dans le conteneur
-WORKDIR /app
+WORKDIR /jeu_devinette_obstacles
 
 # Copier les fichiers du projet dans le conteneur
-# COPY . /app
-COPY requirements.txt /app
+COPY . /jeu_devinette_obstacles
+COPY requirements.txt /jeu_devinette_obstacles
 
 # Installer les dépendances
 # RUN pip install flask
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip -r requirements.txt
 
 
-# Exposer le port 9090
-EXPOSE  9090
+# Exposer le port 5001
+EXPOSE  5001
 
 
 # Définir la commande par défaut
-CMD ["python", "app.py"]
+CMD ["python", "jeu_devinette_obstacles.py"]

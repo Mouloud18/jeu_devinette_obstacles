@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import random
 
-app = Flask(__name__)
-app.secret_key = 'secret-key-devinette'
+jeu = Flask(__name__)
+jeu.secret_key = 'secret-key-devinette'
 
 # Fonction pour initialiser la partie
 def initialiser_partie():
@@ -14,15 +14,15 @@ def initialiser_partie():
     session['message'] = "Bienvenue dans le jeu de devinette ! Entrez un nombre entre 1 et 100."
     session['jeu_termine'] = False
     
-# @app.route('/about')
+# @jeu.route('/about')
 # def about():
 #     return "À propos -2: Ceci est une application Flask avec Git."
 
-# @app.route('/about')
+# @jeu.route('/about')
 # def about():
 #     return "À propos-3 : Ceci est une application Flask avec Git."
 
-@app.route('/', methods=['GET', 'POST'])
+@jeu.route('/', methods=['GET', 'POST'])
 def index():
     # Si la partie est terminée ou que la session n'existe pas encore, on initialise
     if 'nombre_a_deviner' not in session or session.get('jeu_termine', False):
@@ -63,10 +63,10 @@ def index():
 
     return render_template('index.html', message=session['message'], nombre_essais=session['nombre_essais'], jeu_termine=session['jeu_termine'])
 
-@app.route('/recommencer')
+@jeu.route('/recommencer')
 def recommencer():
     initialiser_partie()
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    jeu.run(host='0.0.0.0', port=5002)
