@@ -1,11 +1,21 @@
-FROM python:3.8
-COPY . /app
+# Utiliser une image Python de base
+FROM python:3.9-slim
+
+# Définir le répertoire de travail dans le conteneur
 WORKDIR /app
 
-RUN pip install flask
+# Copier les fichiers du projet dans le conteneur
+# COPY . /app
+COPY requirements.txt /app
 
-ENV PYTHONUNBUFFERED 1
+# Installer les dépendances
+# RUN pip install flask
+RUN pip install -r requirements.txt
 
-EXPOSE 9090
 
-CMD python3.8 ./jeu_devinette_obstacles.py
+# Exposer le port 9090
+EXPOSE  9090
+
+
+# Définir la commande par défaut
+CMD ["python", "app.py"]
