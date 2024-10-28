@@ -13,7 +13,7 @@ COPY requirements.txt /jeu_devinette_obstacles
 RUN pip install --upgrade pip -r requirements.txt
 
 
-# Exposer le port 5001
+# Exposer le port 5002
 EXPOSE  5002
 
 
